@@ -1,9 +1,10 @@
 // import modules
-import express from 'express';
-import getMenu from '../controllers/menuController.js';
+import getMenu from "../controllers/menuController.js";
+import express from "express";
 
 // instance
 const router = express.Router()
+
 
 router.get("/", getMenu);
 
