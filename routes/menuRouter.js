@@ -1,12 +1,10 @@
 // import modules
 import express from 'express';
-import orders from "../orders.js"
+import getMenu from '../controllers/menuController.js';
 
 // instance
 const router = express.Router()
 
-router.get("/", (req, res) => {
-  res.json(orders)
-});
+router.get("/", getMenu);
 
 export default router;
