@@ -7,7 +7,7 @@ const getMenu = asyncHandler(async (req, res) => {
     .json({
       orders: orders,
       message: "orders returned successfully"
-    })
-})
+    });
+});
 
 export default getMenu;

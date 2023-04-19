@@ -14,6 +14,9 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'.b
 
 app.use('/api/menu', menuRoute);
 
+// server listening
 app.listen(8080, () => {
     console.log("server listening from port 8080".bgYellow);
-})
+});
+
+export default app;
