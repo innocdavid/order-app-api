@@ -1,11 +1,11 @@
 // import modules
 import asyncHandler from "express-async-handler";
-import orders from "../orders.js";
+import items from "../orders.js";
 
 const getMenu = asyncHandler(async (req, res) => {
   res.status(200)
     .json({
-      orders: orders,
+      items: items,
       message: "orders returned successfully"
     });
 });
