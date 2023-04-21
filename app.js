@@ -3,10 +3,13 @@ import cors from "cors";
 import colors from "colors";
 import morgan from "morgan";
 import menuRoute from "./routes/menuRouter.js";
+import swaggerDocs from "./config/swagger.js"
 import express from "express";
 
 // instance
 const app = express();
+const PORT = 8080;
+const HOST = 'localhost';
 
 // MIDDLEWARE
 app.use(cors());
@@ -18,8 +21,9 @@ app.use('/api/menu', menuRoute);
 
 if (process.env.NODE_ENV !== 'test') {
     // server listening
-    app.listen(8080, () => {
-        console.log("server listening from port 8080".bgYellow);
+    app.listen(PORT, () => {
+        console.log(`server listening from ${HOST}://${PORT}`.bgYellow);
+        swaggerDocs(app, PORT)
     });
 }
 
