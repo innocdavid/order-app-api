@@ -1,5 +1,6 @@
 export default [
-    {
+    {   
+        id: 1,
         itemName: "Grilled Meat",
         price: 20.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109590/OrderApp/grilled-meat_xkyxuf.jpg",
@@ -7,6 +8,7 @@ export default [
         reviews: ["Great taste", "Enjoyed the dish"] 
     },
     {
+        id: 2,
         itemName: "Hamburger",
         price: 22.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680111009/OrderApp/burger_ivbbyi.jpg",
@@ -14,6 +16,7 @@ export default [
         reviews: ["Great taste", "Enjoyed the dish"] 
     },
     {
+        id: 3,
         itemName: "Shrimps",
         price: 15.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109591/OrderApp/shrimps_unnlnw.jpg",
@@ -21,6 +24,7 @@ export default [
         reviews: ["Great taste", "Enjoyed the dish"] 
     },
     {
+        id: 4,
         itemName: "Sandwich",
         price: 10.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109592/OrderApp/sandwich_d98te8.jpg",
@@ -28,6 +32,7 @@ export default [
         reviews: ["", ""]
     },
     {
+        id: 5,
         itemName: "French Fries",
         price: 5.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109590/OrderApp/fries_h2alxr.jpg",
@@ -35,6 +40,7 @@ export default [
         reviews: ["Great taste", "Enjoyed the dish"] 
     },
     {
+        id: 6,
         itemName: "Fruit Salad",
         price: 10.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109590/OrderApp/fruits-salad_j50utt.jpg",
@@ -42,6 +48,7 @@ export default [
         reviews: ["Fantastic", "Test Great", "WOW Nice"]
     },
     {
+        id: 7,
         itemName: "Pepperoni Pizza",
         price: 15.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680117515/OrderApp/pepperoni-pizza_opskbc.jpg",
@@ -49,6 +56,7 @@ export default [
         reviews: ["Good", "very Good", "Excellent"]
     },
     {
+        id: 8,
         itemName: "Straw Berries", 
         price: 3.00,
         itemUrl: "https://res.cloudinary.com/ddgryadig/image/upload/v1680109588/OrderApp/drinks_qf25qm.jpg",
