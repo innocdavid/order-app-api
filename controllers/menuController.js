@@ -5,7 +5,7 @@ import items from "../orders.js";
 const getMenu = asyncHandler(async (req, res) => {
   res.status(200)
     .json({
-      items: items,
+      items,
       message: "orders returned successfully"
     });
 });
