@@ -5,8 +5,8 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Order App APIs',
-      description: 'Example of CRUD API ',
+      title: 'Restaurant API',
+      description: 'API for managing restaurant orders and menu items',
       version: '1.0.0',
     },
   },
