@@ -1,13 +1,20 @@
 // import modules
 import asyncHandler from "express-async-handler";
-import items from "../orders.js";
+import menuItems from "../orders.js";
 
-const getMenu = asyncHandler(async (req, res) => {
+const getAllItems = asyncHandler(async (req, res) => {
   res.status(200)
     .json({
-      items,
-      message: "orders returned successfully"
+      menuItems,
+      message: "Items returned successfully"
     });
 });
 
-export default getMenu;
+const getSingleItem = asyncHandler(async (req, res) => {
+  const id = Number(req.params.id);
+  const menuItem = menuItems.find(item => item.id === id);
+  if (!menuItem) { return res.status(404).json({ error: "Item not found" }) } 
+  res.status(200).json({ menuItem, message: `${id} returned successfully` });
+});
+
+export { getAllItems, getSingleItem } ;
