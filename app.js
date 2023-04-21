@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'.bgBlue));
 
-app.use('/api/menu', menuRoute);
+app.use('/api/items', menuRoute);
 
 if (process.env.NODE_ENV !== 'test') {
     // server listening
