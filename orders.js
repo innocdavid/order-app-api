@@ -1,4 +1,4 @@
-const items = [
+export default [
     {
         itemName: "Grilled Meat",
         price: 20.00,
@@ -58,5 +58,5 @@ const items = [
 
 ]
      
-export default items;
+
 
