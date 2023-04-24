@@ -67,8 +67,8 @@ router.get("/", getAllItems);
  *     summary: Get a single item
  *     description: Get an item by its id
  *     parameters:
- *      - name: "id"
- *        in: "path"
+ *      - name: id
+ *        in: path
  *        description: item id
  *        required: true
  *        type: integer  

@@ -22,7 +22,7 @@ app.use('/api/items', menuRoute);
 if (process.env.NODE_ENV !== 'test') {
     // server listening
     app.listen(PORT, () => {
-        console.log(`server listening from ${HOST}://${PORT}`.bgYellow);
+        console.log(`server listening from ${HOST}:${PORT}`.bgYellow);
         swaggerDocs(app, PORT)
     });
 }
