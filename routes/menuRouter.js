@@ -1,8 +1,8 @@
 // import modules
 import { 
-  getAllItems,
-  getSingleItem,
-
+  fetchAllItems,
+  fetchSingleItem,
+  createAnItem,
 } from "../controllers/menuController.js";
 import express from "express";
 
@@ -56,7 +56,7 @@ const router = express.Router()
  *              application/json: 
  *                error: 'item not found'
  */
-router.get("/", getAllItems);
+router.get("/", fetchAllItems);
 
 /**
  * @openapi
@@ -121,6 +121,193 @@ router.get("/", getAllItems);
  *                    application/json: 
  *                      error: 'Item not found'
  */
-router.get("/:id", getSingleItem)
+router.get("/:id", fetchSingleItem);
+
+/**
+ * @openapi
+ * '/api/items':
+ *  post:
+ *     tags:
+ *      - Items  
+ *     summary: Create a new item
+ *     consumes:
+ *      - application/json 
+ *     parameters: 
+ *      - in: body 
+ *        name: menuItem
+ *        description: The menu item to create
+ *        required: true
+ *        schema:       
+ *          type: Object
+ *          properties:
+ *            id:
+ *              type: string
+ *              format: uuid
+ *              example: "e175ce37-120d-47d9-a1c1-7e05b2edf1d8"
+ *            manager:
+ *              type: Object
+ *              properties:
+ *                id:
+ *                  type: string
+ *                  format: uuid
+ *                  example: "e175ce37-120d"
+ *                firstName:
+ *                  type: string
+ *                  example: "John"
+ *                lastName: 
+ *                  type: string
+ *                  example: "Doe"
+ *                email: "john.doe@example.com"
+ *              example: 
+ *                id: null
+ *                firstName: ""
+ *                lastName: ""
+ *                email: ""
+ *            chef:
+ *              type: Object
+ *              properties:
+ *                id:
+ *                  type: string
+ *                  format: uuid
+ *                  example: "e175ce37-120d"
+ *                firstName:
+ *                  type: string
+ *                  example: "Jane"
+ *                lastName: 
+ *                  type: string
+ *                  example: "Doe"
+ *                email: "jane.doe@example.com"
+ *              example:
+ *                id: null
+ *                firstName: ""
+ *                lastName: ""
+ *                email: ""
+ *            itemName:
+ *              type: string
+ *              example: "Grilled Meat"
+ *            price: 
+ *              type: number
+ *              format: float
+ *              example: 20.3
+ *            description: 
+ *              type: string
+ *              example: "Juicy and tender grilled meat with spices"
+ *            itemSize: 
+ *              type: string
+ *              example: "Medium"
+ *            category:
+ *              type: string
+ *              example: "Main Dish"
+ *            cookingDuration:
+ *              type: string
+ *              example: "30 minutes"
+ *            itemUrl:
+ *              type: string
+ *              example: ""
+ *            rating: 
+ *              type: number
+ *              format: float
+ *              example: 4.5
+ *            reviews:
+ *              type: array
+ *              items:
+ *                type: string
+ *              example: 
+ *                - "Great taste"
+ *                - "Enjoyed the dish"
+ * 
+ *     responses:
+ *      description:
+ *        200:
+ *         description: The created menu item
+ *         schema:
+ *          type: Object
+ *          properties:
+ *            id:
+ *              type: string
+ *              format: uuid
+ *              example: "e175ce37-120d-47d9-a1c1-7e05b2edf1d8"
+ *            manager:
+ *              type: Object
+ *              properties:
+ *                id:
+ *                  type: string
+ *                  format: uuid
+ *                  example: "e175ce37-120d"
+ *                firstName:
+ *                  type: string
+ *                  example: "John"
+ *                lastName: 
+ *                  type: string
+ *                  example: "Doe"
+ *                email: "john.doe@example.com"
+ *              example: 
+ *                id: null
+ *                firstName: ""
+ *                lastName: ""
+ *                email: ""
+ *            chef:
+ *              type: Object
+ *              properties:
+ *                id:
+ *                  type: string
+ *                  format: uuid
+ *                  example: "e175ce37-120d"
+ *                firstName:
+ *                  type: string
+ *                  example: "Jane"
+ *                lastName: 
+ *                  type: string
+ *                  example: "Doe"
+ *                email: "jane.doe@example.com"
+ *              example:
+ *                id: null
+ *                firstName: ""
+ *                lastName: ""
+ *                email: ""
+ *            itemName:
+ *              type: string
+ *              example: "Grilled Meat"
+ *            price: 
+ *              type: number
+ *              format: float
+ *              example: 20.3
+ *            description: 
+ *              type: string
+ *              example: "Juicy and tender grilled meat with spices"
+ *            itemSize: 
+ *              type: string
+ *              example: "Medium"
+ *            category:
+ *              type: string
+ *              example: "Main Dish"
+ *            cookingDuration:
+ *              type: string
+ *              example: "30 minutes"
+ *            itemUrl:
+ *              type: string
+ *              example: ""
+ *            rating: 
+ *              type: number
+ *              format: float
+ *              example: 4.5
+ *            reviews:
+ *              type: array
+ *              items:
+ *                type: string
+ *              example: 
+ *                - "Great taste"
+ *                - "Enjoyed the dish"       
+ *        400:
+ *         description: Invalid request data
+ *        500: 
+ *         description: Internal server error
+ *
+
+
+
+
+ */
+router.post("/api/items", createAnItem);
 
 export default router;

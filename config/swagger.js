@@ -9,6 +9,9 @@ const options = {
       description: 'API for managing restaurant orders and menu items',
       version: '1.0.0',
     },
+    schema: 'HTTPS/1.1',
+    basePath: '/api/',
+
   },
   // looks for configuration in specified directories
   apis: ['./routes/*.js'],
