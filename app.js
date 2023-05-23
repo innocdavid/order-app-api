@@ -3,6 +3,7 @@ import cors from "cors";
 import colors from "colors";
 import morgan from "morgan";
 import menuRoute from "./routes/menuRouter.js";
+import coverImageRoute from "./routes/coverImageRoute.js";
 import swaggerDocs from "./config/swagger.js"
 import express from "express";
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'.bgBlue));
 
 app.use('/api/items', menuRoute);
+app.use('/api/cover-image', menuRoute);
 
 if (process.env.NODE_ENV !== 'test') {
     // server listening

@@ -303,10 +303,6 @@ router.get("/:id", fetchSingleItem);
  *        500: 
  *         description: Internal server error
  *
-
-
-
-
  */
 router.post("/api/items", createAnItem);
 
