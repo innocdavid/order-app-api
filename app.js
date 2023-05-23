@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'.bgBlue));
 
 app.use('/api/items', menuRoute);
-app.use('/api/cover-image', menuRoute);
+app.use('/api/cover-images', coverImageRoute);
 
 if (process.env.NODE_ENV !== 'test') {
     // server listening
