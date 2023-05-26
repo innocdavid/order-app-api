@@ -1,7 +1,7 @@
 // import modules
 import { v4 as uuidv4 } from 'uuid';
 import asyncHandler from "express-async-handler";
-import menuItems from "../orders.js";
+import menuItems from "../data/orders.js";
 
 const fetchAllItems = asyncHandler(async (req, res) => {
   res.status(200)

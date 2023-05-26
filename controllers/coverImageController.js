@@ -7,6 +7,7 @@ const coverImages = [
   { id: 3, name: 'image3', url: 'https://cdn4.vectorstock.com/i/1000x1000/10/88/fast-food-restaurant-social-media-advertising-vector-31181088.jpg' },
   { id: 4, name: 'image4', url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Ffood-promotion&psig=AOvVaw09PwFOysXcwILCdmSYc1V7&ust=1684910289101000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKiDnI3qiv8CFQAAAAAdAAAAABAi' },
 ]
+
 const fetchAllCoverImages = asyncHandler( async(req, res) => {
   res.status(200)
     .json({
