@@ -5,10 +5,12 @@ import morgan from "morgan";
 import menuRoute from "./routes/menuRouter.js";
 import coverImageRoute from "./routes/coverImageRoute.js";
 import swaggerDocs from "./config/swagger.js"
+import dotenv from "dotenv";
 import express from "express";
 
 // instance
 const app = express();
+dotenv.config();
 const PORT = 8080;
 const HOST = 'localhost';
 
