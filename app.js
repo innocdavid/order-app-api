@@ -5,14 +5,15 @@ import morgan from "morgan";
 import menuRoute from "./routes/menuRouter.js";
 import coverImageRoute from "./routes/coverImageRoute.js";
 import swaggerDocs from "./config/swagger.js"
+import dbConnection from "./config/db.js";
 import dotenv from "dotenv";
 import express from "express";
 
 // instance
 const app = express();
 dotenv.config();
-const PORT = 8080;
-const HOST = 'localhost';
+dbConnection()
+
 
 // MIDDLEWARE
 app.use(cors());
@@ -25,9 +26,9 @@ app.use('/api/cover-images', coverImageRoute);
 
 if (process.env.NODE_ENV !== 'test') {
     // server listening
-    app.listen(PORT, () => {
-        console.log(`server listening from ${HOST}:${PORT}`.bgYellow);
-        swaggerDocs(app, PORT)
+    app.listen(process.env.PORT, () => {
+        console.log(`server listening from ${process.env.HOST}:${process.env.PORT}`.bgYellow);
+        swaggerDocs(app, process.env.PORT)
     });
 }
 
