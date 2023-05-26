@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "jest --watchAll test",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d"
   },
   "author": "Banja David Lotigo",
   "license": "MIT",
