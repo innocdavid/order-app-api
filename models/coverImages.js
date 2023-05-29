@@ -18,6 +18,6 @@ const coverImageSchema = mongoose.Schema({
   }
 }, { timestamps: true })
 
-const ImageCover = mongoose.model('ImageCover', coverImageSchema);
+const CoverImage = mongoose.model('CoverImage', coverImageSchema);
 
-export default ImageCover;
+export default CoverImage;

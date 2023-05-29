@@ -1,7 +1,7 @@
 import {
-  fetchAllCoverImages
+  fetchAllCoverImages,
+  fetchSingleCoverImage,
 } from '../controllers/coverImageController.js';
-
 import express from 'express';
 
 const router = express.Router();
@@ -45,6 +45,7 @@ const router = express.Router();
  *                error: 'image not found'
  */
 router.get("/", fetchAllCoverImages);
+router.get("/:id", fetchSingleCoverImage);
 
 
 export default router;
