@@ -1,6 +1,7 @@
 import {
   fetchAllCoverImages,
   fetchSingleCoverImage,
+  postCoverImage,
 } from '../controllers/coverImageController.js';
 import express from 'express';
 
@@ -101,6 +102,6 @@ router.get("/", fetchAllCoverImages);
  *                      error: 'Item not found'
  */
 router.get("/:id", fetchSingleCoverImage);
-
+router.post("/", postCoverImage);
 
 export default router;
