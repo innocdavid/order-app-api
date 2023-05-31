@@ -1,7 +1,9 @@
 import asyncHandler from 'express-async-handler';
 import CoverImage from "../models/coverImages.js";
 import mongoose from 'mongoose';
+import User from '../models/users.js';
 
+// fetch list all of cover images
 const fetchAllCoverImages = asyncHandler(async (req, res) => {
   try {
     const coverImages = await CoverImage.find({});
@@ -15,8 +17,8 @@ const fetchAllCoverImages = asyncHandler(async (req, res) => {
   }
 });
 
+// fetch a single cover image
 const fetchSingleCoverImage = asyncHandler(async (req, res) => {
-  // const id = ;
   try {
 
     const { id } = req.params;
@@ -34,4 +36,20 @@ const fetchSingleCoverImage = asyncHandler(async (req, res) => {
   }
 });
 
-export { fetchAllCoverImages, fetchSingleCoverImage, };
+// post a cover image
+const postCoverImage = asyncHandler(async (req, res) => {
+  try {
+    const { user, name, url } = req.body;
+    const newCoverImage = new CoverImage({
+      user,
+      name,
+      url,
+    });
+    const savedCoverImage = await newCoverImage.save();
+    res.status(201).json({savedCoverImage, message: "Cover image saved successfully"});
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+export { fetchAllCoverImages, fetchSingleCoverImage, postCoverImage };
