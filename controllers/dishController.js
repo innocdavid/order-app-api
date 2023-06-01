@@ -51,4 +51,35 @@ const createDish = asyncHandler(async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-export { fetchAllDishes, fetchSingleDish, createDish, } ;
+
+// update dish
+const updateDish = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid dish ID' });
+  }
+
+  try {
+    const dish = await DishModel.findById(id);
+    if (!dish) return res.status(404).json({ error: `Dish with id ${id} not found`});
+    // update cover image properties
+    dish.name =  req.body.name || dish.name;
+    dish.price = req.body.price || dish.price;
+    dish.description = req.body.description || dish.description;
+    dish.category = req.body.category || dish.category;
+    dish.cookingDuration = req.body.cookingDuration || dish.cookingDuration;
+    dish.sizes = req.body.sizes || dish.sizes;
+    dish.imageUrl = req.body.imageUrl || dish.imageUrl;
+    dish.ingredients = req.body.ingredients || dish.ingredients;
+    dish.nuitrients = req.body.nuitrients || dish.nuitrients;
+    dish.rating = req.body.rating || dish.rating;
+    dish.reviews = req.body.reviews || dish.reviews;
+    // Save the updated cover image
+    const updatedDish = await dish.save();
+    res.status(200).json({ updatedDish, message: "Updated dish successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+export { fetchAllDishes, fetchSingleDish, createDish, updateDish } ;
