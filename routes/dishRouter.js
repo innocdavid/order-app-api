@@ -1,7 +1,8 @@
 // import modules
 import { 
   fetchAllDishes,
-  fetchSingleDish
+  fetchSingleDish,
+  createDish,
 } from "../controllers/dishController.js";
 import express from "express";
 
@@ -154,5 +155,6 @@ router.get("/", fetchAllDishes);
  *                      error: 'Item not found'
  */
 router.get("/:id", fetchSingleDish);
+router.post("/", createDish);
 
 export default router;
