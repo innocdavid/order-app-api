@@ -36,8 +36,8 @@ const fetchSingleCoverImage = asyncHandler(async (req, res) => {
   }
 });
 
-// post a cover image
-const postCoverImage = asyncHandler(async (req, res) => {
+// create a cover image
+const createCoverImage = asyncHandler(async (req, res) => {
   try {
     const { user, name, url } = req.body;
     const newCoverImage = new CoverImage({
@@ -48,8 +48,30 @@ const postCoverImage = asyncHandler(async (req, res) => {
     const savedCoverImage = await newCoverImage.save();
     res.status(201).json({savedCoverImage, message: "Cover image saved successfully"});
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
-export { fetchAllCoverImages, fetchSingleCoverImage, postCoverImage };
+// update cover image
+const updateCoverImage = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid cover image ID' });
+  }
+
+  try {
+    const coverImage = await CoverImage.findById(id);
+    if (!coverImage) return res.status(404).json({ error: "Cover image not found"});
+    // update cover image properties
+    coverImage.name =  req.body.name || coverImage.name;
+    coverImage.url = req.body.url || coverImage.url;
+    // Save the updated cover image
+    const updatedCoverImage = await coverImage.save();
+    res.status(200).json({ updatedCoverImage, message: "Updated cover image successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+export { fetchAllCoverImages, fetchSingleCoverImage, createCoverImage, updateCoverImage };
