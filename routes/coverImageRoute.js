@@ -141,6 +141,38 @@ router.get("/:id", fetchSingleCoverImage);
  */
 router.post("/", createCoverImage);
 
+/**
+ * @openapi
+ * '/api/cover-images/{id}':
+ *  put:
+ *     tags:
+ *     - Cover Images
+ *     summary: Update cover image
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the cover image
+ *        type: integer
+ *     requestBody:
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required: 
+ *              - id
+ *            properties:
+ *              name:
+ *                type: string
+ *              url:
+ *                type: string
+ *     responses:
+ *      200:
+ *        description: Cover image updated successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ */
 router.put("/:id", updateCoverImage);
 
 export default router;
