@@ -155,6 +155,73 @@ router.get("/", fetchAllDishes);
  *                      error: 'Item not found'
  */
 router.get("/:id", fetchSingleDish);
+
+/**
+ * @openapi
+ * '/api/dishes':
+ *  post:
+ *     tags:
+ *     - Dishes
+ *     summary: Create a dish
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - user
+ *              - name
+ *              - price
+ *              - description
+ *              - category
+ *              - cookingDuration
+ *              - imageUrl
+ *            properties:
+ *              user:
+ *                type: string
+ *                default: "64706a47bc9ba5be71c18063"
+ *              name:
+ *                type: string
+ *                default: "Grilled Meat"
+ *              price:
+ *                type: Number
+ *                default: 20.40
+ *              description:
+ *                type: string
+ *                default: "lorem Ipsum"
+ *              category:
+ *                type: string
+ *                default: "Drinks"
+ *              cookingDuration:
+ *                type: string,
+ *                default: "40 minutes"
+ *              sizes: 
+ *                type: Array
+ *                default: ["Large", "Small", "Medium"]
+ *              imageUrl:
+ *                type: string
+ *                default: "http://localhost.com/images"
+ *              Ingredients:
+ *                type: Array
+ *                default: ["Tomatoes", "Mushrooms", "Cooking oil", ]
+ *              nuitrients: 
+ *                type: Array
+ *                default: ["Vitamin C", "Vitamin D"]
+ *              rating: 
+ *                type: Number
+ *                default: 3.5
+ *              review:
+ *                type: Array
+ *                default: [{"name": "Banja", "comment": "Fantastic", "rating": 4.3}]
+ *     responses:
+ *      201:
+ *        description: Created
+ *      409:
+ *        description: Conflict
+ *      404:
+ *        description: Not Found
+ */
 router.post("/", createDish);
 
 export default router;
