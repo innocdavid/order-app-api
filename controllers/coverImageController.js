@@ -55,14 +55,14 @@ const createCoverImage = asyncHandler(async (req, res) => {
 // update cover image
 const updateCoverImage = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  
+
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: 'Invalid cover image ID' });
   }
 
   try {
     const coverImage = await CoverImage.findById(id);
-    if (!coverImage) return res.status(404).json({ error: "Cover image not found"});
+    if (!coverImage) return res.status(404).json({ error: `cover image with ${id} not found`});
     // update cover image properties
     coverImage.name =  req.body.name || coverImage.name;
     coverImage.url = req.body.url || coverImage.url;
@@ -74,4 +74,21 @@ const updateCoverImage = asyncHandler(async (req, res) => {
   }
 });
 
-export { fetchAllCoverImages, fetchSingleCoverImage, createCoverImage, updateCoverImage };
+// delete cover image
+const removeCoverImage = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid cover image ID' });
+  }
+
+  try {
+    const coverImage = await CoverImage.findByIdAndRemove(id);
+    if (!coverImage) return res.status(400).json({ message: `cover image with ${id} not found` });
+    res.status(200).json({ message: `cover image deleted successfully` });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+export { fetchAllCoverImages, fetchSingleCoverImage, createCoverImage, updateCoverImage, removeCoverImage };
