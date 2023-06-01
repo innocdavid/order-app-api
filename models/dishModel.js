@@ -22,6 +22,11 @@ const dishSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+
+  description: {
+    type: String,
+    required: true,
+  },
   
   category: {
     type: String,
