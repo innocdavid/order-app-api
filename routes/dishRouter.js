@@ -3,6 +3,7 @@ import {
   fetchAllDishes,
   fetchSingleDish,
   createDish,
+  updateDish,
 } from "../controllers/dishController.js";
 import express from "express";
 
@@ -223,5 +224,7 @@ router.get("/:id", fetchSingleDish);
  *        description: Not Found
  */
 router.post("/", createDish);
+
+router.put("/:id", updateDish);
 
 export default router;
