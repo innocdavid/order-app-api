@@ -4,7 +4,7 @@ import colors from "colors";
 import users from "./data/users.js";
 import coverImages from "./data/imageCover.js";
 import User from "./models/users.js";
-import { CoverImage } from "./models/coverImages.js";
+import CoverImage from "./models/coverImages.js";
 import dbConnection from "./config/db.js";
 
 dotenv.config();
