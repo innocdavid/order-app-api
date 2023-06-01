@@ -15,7 +15,7 @@ const router = express.Router();
  *  get:
  *     tags:
  *     - Cover Images  
- *     summary: Get the list of cover images
+ *     summary: Fetch list of available cover images
  *     description: Returns the list of available images with their id, name and url.
  *     responses:
  *       200:
@@ -55,8 +55,8 @@ router.get("/", fetchAllCoverImages);
  *  get:
  *     tags:
  *      - Cover Images 
- *     summary: Get a single cover image
- *     description: Get an cover image by its id
+ *     summary: Fetch cover image by their id
+ *     description: Fetch a cover image by their id
  *     parameters:
  *      - name: id
  *        in: path
@@ -148,7 +148,7 @@ router.post("/", createCoverImage);
  *  put:
  *     tags:
  *     - Cover Images
- *     summary: Update cover image
+ *     summary: Update a cover image by their id
  *     parameters:
  *      - name: id
  *        in: path
@@ -183,7 +183,7 @@ router.put("/:id", updateCoverImage);
  *  delete:
  *     tags:
  *     - Cover Images
- *     summary: Remove cover image by id
+ *     summary: Remove a cover image by their id
  *     parameters:
  *      - name: id
  *        in: path

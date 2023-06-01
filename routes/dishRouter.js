@@ -14,7 +14,7 @@ const router = express.Router()
  *  get:
  *     tags:
  *     - Dishes  
- *     summary: Get the list of dishes
+ *     summary: Fetch list of available dishes
  *     description: Returns the list of available images with their name, price, category, cookingDuration, size, imageUrl, ingredients, nuitrients, rating and reviews.
  *     responses:
  *       200:
@@ -78,8 +78,8 @@ router.get("/", fetchAllDishes);
  *  get:
  *     tags:
  *      - Dishes 
- *     summary: Get a single cover dish
- *     description: Get an dish by its id
+ *     summary: Fetch dish by their id
+ *     description: Fetch dish by their id
  *     parameters:
  *      - name: id
  *        in: path
@@ -130,7 +130,7 @@ router.get("/", fetchAllDishes);
  *                    type: Array
  *                    description: the reviews of a dish
  *        400:
- *          description: 'Cover image not found'
+ *          description: 'Dish not found not found'
  *          schema: 
  *            type: object
  *            properties:
@@ -140,7 +140,7 @@ router.get("/", fetchAllDishes);
  *                application/json: 
  *                  error: 'Bad request'
  *          404:
- *            description: 'Cover image not found'
+ *            description: 'Dish not found'
  *            schema: 
  *              type: object
  *              properties:
