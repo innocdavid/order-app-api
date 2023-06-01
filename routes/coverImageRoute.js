@@ -1,7 +1,7 @@
 import {
   fetchAllCoverImages,
   fetchSingleCoverImage,
-  postCoverImage,
+  createCoverImage,
 } from '../controllers/coverImageController.js';
 import express from 'express';
 
@@ -17,7 +17,7 @@ const router = express.Router();
  *     description: Returns the list of available images with their id, name and url.
  *     responses:
  *       200:
- *         description: A list of cover images
+ *         description: Sucessfully fetched cover images
  *         content:
  *          application/json:
  *            schema:
@@ -102,6 +102,42 @@ router.get("/", fetchAllCoverImages);
  *                      error: 'Item not found'
  */
 router.get("/:id", fetchSingleCoverImage);
-router.post("/", postCoverImage);
+
+/**
+ * @openapi
+ * '/api/cover-images':
+ *  post:
+ *     tags:
+ *     - Cover Images
+ *     summary: Create a cover image
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - user
+ *              - name
+ *              - url
+ *            properties:
+ *              user:
+ *                type: string
+ *                default: "64706a47bc9ba5be71c18063"
+ *              name:
+ *                type: string
+ *                default: "Grilled Meat"
+ *              url:
+ *                type: string
+ *                default: "http://localhost"
+ *     responses:
+ *      201:
+ *        description: Created
+ *      409:
+ *        description: Conflict
+ *      404:
+ *        description: Not Found
+ */
+router.post("/", createCoverImage);
 
 export default router;
