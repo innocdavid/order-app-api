@@ -3,6 +3,7 @@ import {
   fetchSingleCoverImage,
   createCoverImage,
   updateCoverImage,
+  removeCoverImage,
 } from '../controllers/coverImageController.js';
 import express from 'express';
 
@@ -174,5 +175,6 @@ router.post("/", createCoverImage);
  *        description: Not Found
  */
 router.put("/:id", updateCoverImage);
+router.delete("/:id", removeCoverImage);
 
 export default router;
