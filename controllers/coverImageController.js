@@ -38,15 +38,15 @@ const fetchSingleCoverImage = asyncHandler(async (req, res) => {
 
 // create a cover image
 const createCoverImage = asyncHandler(async (req, res) => {
+  const { user, name, url } = req.body;
+  const newCoverImage = new CoverImage({
+    user,
+    name,
+    url,
+  });
   try {
-    const { user, name, url } = req.body;
-    const newCoverImage = new CoverImage({
-      user,
-      name,
-      url,
-    });
     const savedCoverImage = await newCoverImage.save();
-    res.status(201).json({savedCoverImage, message: "Cover image saved successfully"});
+    res.status(201).json({ savedCoverImage, message: "Cover image saved successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
