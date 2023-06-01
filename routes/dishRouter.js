@@ -4,6 +4,7 @@ import {
   fetchSingleDish,
   createDish,
   updateDish,
+  removeDish,
 } from "../controllers/dishController.js";
 import express from "express";
 
@@ -287,5 +288,27 @@ router.post("/", createDish);
  *        description: Not Found
  */
 router.put("/:id", updateDish);
+
+/**
+ * @openapi
+ * '/api/dishes/{id}':
+ *  delete:
+ *     tags:
+ *     - Dishes
+ *     summary: Remove a dish by their id
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the dish
+ *        required: true
+ *     responses:
+ *      200:
+ *        description: Dish deleted successfully
+ *      400:
+ *        description: Bad request
+ *      404:
+ *        description: Not Found
+ */
+router.delete("/:id", removeDish);
 
 export default router;
