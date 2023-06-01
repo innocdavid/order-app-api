@@ -175,6 +175,28 @@ router.post("/", createCoverImage);
  *        description: Not Found
  */
 router.put("/:id", updateCoverImage);
+
+
+/**
+ * @openapi
+ * '/api/cover-images/{id}':
+ *  delete:
+ *     tags:
+ *     - Cover Images
+ *     summary: Remove cover image by id
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the cover image
+ *        required: true
+ *     responses:
+ *      200:
+ *        description: Cover image deleted successfully
+ *      400:
+ *        description: Bad request
+ *      404:
+ *        description: Not Found
+ */
 router.delete("/:id", removeCoverImage);
 
 export default router;
