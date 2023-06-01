@@ -82,4 +82,21 @@ const updateDish = asyncHandler(async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-export { fetchAllDishes, fetchSingleDish, createDish, updateDish } ;
+
+// delete dish
+const removeDish = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid dish ID' });
+  }
+
+  try {
+    const dish = await DishModel.findByIdAndRemove(id);
+    if (!dish) return res.status(400).json({ message: `Dish with ${id} not found` });
+    res.status(200).json({ message: `Dish deleted successfully` });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+export { fetchAllDishes, fetchSingleDish, createDish, updateDish, removeDish } ;
