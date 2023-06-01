@@ -105,6 +105,9 @@ router.get("/", fetchAllDishes);
  *                  price:
  *                    type: number
  *                    description: The price of a dish 
+ *                  description:
+ *                    type: string
+ *                    description: the description of a dish
  *                  category:
  *                    type: String
  *                    description: The category a the dish  
