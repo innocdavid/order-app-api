@@ -36,26 +36,19 @@ const fetchSingleDish = asyncHandler(async (req, res) => {
   }
 });
 
-// const fetchSingleItem = asyncHandler(async (req, res) => {
-//   const id = Number(req.params.id);
-//   const menuItem = menuItems.find(item => item.id === id);
-//   if (!menuItem) { return res.status(404).json({ error: "Item not found" }) } 
-//   res.status(200).json({ menuItem, message: `${id} returned successfully` });
-// });
-
-// const createAnItem = asyncHandler(async (req, res) => {
-//   try {
-//     const menuItemData = req.body;
-//     // TODO: asign id to menuItem
-//     menuItemData.id = uuidv4();
-//     const newMenuItem = await menuItems.create(menuItemData);
-//     res.status(200).json({
-//       menuItem: newMenuItem,
-//       message: "Item created successfully"
-//     })
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// });
+const createDish = asyncHandler(async (req, res) => {
+  const { user, name, price, description, category, 
+          cookingDuration, sizes, imageUrl, ingredients, nuitrients,
+            rating, reviews } = req.body;
+  const newDish = new DishModel({
+    user, name, price, description, category, cookingDuration, 
+      sizes, imageUrl, ingredients, nuitrients, rating, reviews
+  });
+  try {
+    const savedDish = await newDish.save();
+    res.status(200).json({ savedDish, message: "Dish saved successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 export { fetchAllDishes, fetchSingleDish } ;
