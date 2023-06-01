@@ -2,7 +2,7 @@ export default [
     {   
         name: "Grilled Meat",
         price: 20.00,
-        decription: "lorem ipsum dolor sit amet, consect",
+        description: "lorem ipsum dolor sit amet, consect",
         category: "Meat",
         cookingDuration: "2 hours",
         sizes: ["Large", "Small", "Medium"],
@@ -15,7 +15,7 @@ export default [
     {
         name: "Hamburger",
         price: 22.00,
-        decription: "lorem Ipsum is Lorem Ipsum",
+        description: "lorem Ipsum is Lorem Ipsum",
         category: "Meat",
         cookingDuration: "2 hours",
         sizes: ["Large", "Small", "Medium"],
@@ -28,7 +28,7 @@ export default [
     {
         name: "Shrimps",
         price: 15.00,
-        decription: "lorem ipsum dolor sit amet, consectetur adip",
+        description: "lorem ipsum dolor sit amet, consectetur adip",
         category: "Drinks",
         cookingDuration: "1 hour",
         sizes: ["Larger", "Small", "Medium"],
@@ -41,7 +41,7 @@ export default [
     {
         name: "Sandwich",
         price: 10.00,
-        decription: "lorem ipsum dolor sit amet",
+        description: "lorem ipsum dolor sit amet",
         category: "Desert",
         cookingDuration: "30 minutes",
         sizes: ["Larger", "Small", "Medium"],
@@ -54,7 +54,7 @@ export default [
     {
         name: "French Fries",
         price: 5.00,
-        decription: "lorem ipsum dolor sit amet, consectetur",
+        description: "lorem ipsum dolor sit amet, consectetur",
         category: "Fries",
         cookingDuration: "40 minutes",
         sizes: ["Larger", "Small", "Medium"],
@@ -67,7 +67,7 @@ export default [
     {
         name: "Fruit Salad",
         price: 10.00,
-        decription: "lorem Ipsum",
+        description: "lorem Ipsum",
         category: "Fruits",
         cookingDuration: "2 minutes",
         sizes: ["Larger", "Small", "Medium"],
@@ -80,7 +80,7 @@ export default [
     {
         name: "Pepperoni Pizza",
         price: 15.00,
-        decription: "lorem ipsum dolor sit amet",
+        description: "lorem ipsum dolor sit amet",
         category: "Bread",
         cookingDuration: "50 minutes",
         sizes: ["Larger", "Small", "Medium"],
@@ -93,7 +93,7 @@ export default [
     {
         name: "Straw Berries", 
         price: 3.00,
-        decription: "lorem ipsum dolor sit amet, consect",
+        description: "lorem ipsum dolor sit amet, consect",
         category: "Fruites",
         cookingDuration: "2 minutes",
         sizes: ["Larger", "Small", "Medium"],
