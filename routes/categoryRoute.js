@@ -1,6 +1,7 @@
 import express from 'express';
 import {
-  fetchAllCategories
+  fetchAllCategories,
+  fetchSingleCategory,
 } from "../controllers/categoryController.js";
 
 const router = express.Router();
@@ -47,5 +48,7 @@ const router = express.Router();
  *                error: 'image not found'
  */
 router.get("/", fetchAllCategories);
+
+router.get("/:id", fetchSingleCategory);
 
 export default router;
