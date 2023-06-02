@@ -49,6 +49,63 @@ const router = express.Router();
  */
 router.get("/", fetchAllCategories);
 
+/**
+ * @openapi
+ * '/api/categories/{id}':
+ *  get:
+ *     tags:
+ *      - Categories 
+ *     summary: Fetch a category by their id
+ *     description: Fetch a category by their id
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: category id
+ *        required: true
+ *        type: integer  
+ *     responses:
+ *       200:
+ *        description: category returned
+ *        content:
+ *          application/json:  
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: number
+ *                    description: The id of the category
+ *                  user:
+ *                    type: string
+ *                    description: the name of the user
+ *                  name:
+ *                    type: string
+ *                    description: The name of the category
+ *                  imageUrl:
+ *                    type: string
+ *                    description: The image url of the category
+ *        400:
+ *          description: 'Category not found'
+ *          schema: 
+ *            type: object
+ *            properties:
+ *              error:
+ *                type: string
+ *              example:
+ *                application/json: 
+ *                  error: 'Bad request'
+ *          404:
+ *            description: 'Category not found'
+ *            schema: 
+ *              type: object
+ *              properties:
+ *                error:
+ *                  type: string
+ *                  example:
+ *                    application/json: 
+ *                      error: 'Category not found'
+ */
 router.get("/:id", fetchSingleCategory);
 
 export default router;
