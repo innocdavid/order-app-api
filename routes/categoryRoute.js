@@ -2,6 +2,7 @@ import express from 'express';
 import {
   fetchAllCategories,
   fetchSingleCategory,
+  createCategory
 } from "../controllers/categoryController.js";
 
 const router = express.Router();
@@ -107,5 +108,7 @@ router.get("/", fetchAllCategories);
  *                      error: 'Category not found'
  */
 router.get("/:id", fetchSingleCategory);
+
+router.post("/", createCategory);
 
 export default router;
