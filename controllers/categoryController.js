@@ -31,4 +31,19 @@ const fetchSingleCategory = asyncHandler(async (req, res) => {
   }
 });
 
-export { fetchAllCategories, fetchSingleCategory };
+const createCategory = asyncHandler(async (req, res) => {
+  const { user, name, imageUrl } = req.body;
+  const newCategory = new Category({
+    user,
+    name,
+    imageUrl
+  });
+  try {
+    const savedCategory = await newCategory.save();
+    res.status(200).json({ savedCategory, message: "Category saved successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+export { fetchAllCategories, fetchSingleCategory, createCategory };
