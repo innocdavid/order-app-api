@@ -3,7 +3,8 @@ import {
   fetchAllCategories,
   fetchSingleCategory,
   createCategory,
-  updateCategory
+  updateCategory,
+  removeCategory,
 } from "../controllers/categoryController.js";
 
 const router = express.Router();
@@ -180,4 +181,26 @@ router.post("/", createCategory);
  *        description: Not Found
  */
 router.put("/:id", updateCategory);
+
+/**
+ * @openapi
+ * '/api/categories/{id}':
+ *  delete:
+ *     tags:
+ *     - Categories
+ *     summary: Remove a category by their id
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the category
+ *        required: true
+ *     responses:
+ *      200:
+ *        description: category deleted successfully
+ *      400:
+ *        description: Bad request
+ *      404:
+ *        description: Not Found
+ */
+router.delete("/:id", removeCategory);
 export default router;
