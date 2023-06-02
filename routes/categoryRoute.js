@@ -146,5 +146,38 @@ router.get("/:id", fetchSingleCategory);
  *        description: Not Found
  */
 router.post("/", createCategory);
+
+/**
+ * @openapi
+ * '/api/categories/{id}':
+ *  put:
+ *     tags:
+ *     - Categories
+ *     summary: Update a category by their id
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The unique id of the category
+ *        type: integer
+ *     requestBody:
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required: 
+ *              - id
+ *            properties:
+ *              name:
+ *                type: string
+ *              url:
+ *                type: string
+ *     responses:
+ *      200:
+ *        description: Category updated successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ */
 router.put("/:id", updateCategory);
 export default router;
