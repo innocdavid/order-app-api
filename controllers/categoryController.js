@@ -66,4 +66,16 @@ const updateCategory = asyncHandler(async (req, res) => {
 
 });
 
-export { fetchAllCategories, fetchSingleCategory, createCategory, updateCategory };
+const removeCategory = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid category ID' });
+  }
+
+  const removedCategory = await Category.findByIdAndRemove(id);
+  if (!removedCategory) res.status(404).json({ message: `Category of id ${id} does not exist` });
+  res.status(200).json({ message: "Category deleted successfully" });
+});
+
+export { fetchAllCategories, fetchSingleCategory, createCategory, updateCategory, removeCategory };
