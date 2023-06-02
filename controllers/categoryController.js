@@ -46,4 +46,24 @@ const createCategory = asyncHandler(async (req, res) => {
   }
 });
 
-export { fetchAllCategories, fetchSingleCategory, createCategory };
+const updateCategory = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid category ID' });
+  }
+
+  try {
+    const category = await Category.findById(id);
+    if (!category) return res.status(404).json({ message: `Category with id ${id} not found` });
+    category.name = req.body.name || category.name;
+    category.imageUrl = req.body.imageUrl || category.imageUrl;
+    const updatedCategory = await category.save();
+    res.status(200).json({ updatedCategory, message: "Category updated successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+
+});
+
+export { fetchAllCategories, fetchSingleCategory, createCategory, updateCategory };
