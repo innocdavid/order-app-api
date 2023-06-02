@@ -109,6 +109,41 @@ router.get("/", fetchAllCategories);
  */
 router.get("/:id", fetchSingleCategory);
 
+/**
+ * @openapi
+ * '/api/categories':
+ *  post:
+ *     tags:
+ *     - Categories
+ *     summary: Create a category
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - user
+ *              - name
+ *              - imageUrl
+ *            properties:
+ *              user:
+ *                type: string
+ *                default: "64706a47bc9ba5be71c18063"
+ *              name:
+ *                type: string
+ *                default: "test"
+ *              imageUrl:
+ *                type: string
+ *                default: "http://localhost/images/category.png"
+ *     responses:
+ *      201:
+ *        description: category Created
+ *      409:
+ *        description: Conflict
+ *      404:
+ *        description: Not Found
+ */
 router.post("/", createCategory);
 
 export default router;
